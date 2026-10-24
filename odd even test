@@ -1,0 +1,9 @@
+# odd or even
+print("Welcome ot the odd even test!")
+number=int(input("Input a whole number: "))
+
+if number%2==0:
+    print("Theis is an even number.")
+else:
+    print("This is an odd number.")
+    
