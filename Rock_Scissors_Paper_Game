@@ -43,7 +43,6 @@ choices=["rock","paper","scissors"]
 
 pc_pick=random.randint(0,2)
 pc_choice=choices[pc_pick]
-#print(pc_choice)
 print(f"Your opponent picked {pc_choice}")
 
 if pc_choice=="rock":
