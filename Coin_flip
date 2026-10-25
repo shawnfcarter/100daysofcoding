@@ -1,0 +1,14 @@
+#heads or tales game
+import random
+
+
+input('The coin toss game.\n' 
+        'Flip a coin!\n'
+        'type "flip"\n ')
+
+random_flip=random.randint(0,1)
+#print(random_flip) #check result
+if(random_flip==0):
+    print("Heads")
+else:
+    print("Tails")
