@@ -1,0 +1,66 @@
+#rock, paper, scissors game
+import random
+
+# ASCII art for the game
+rock=('''
+        ,--.--._
+------" _,  ___)
+        /  /____)
+        \//(____)
+------\     (__)
+       `-----"
+ ''')
+
+scissors=('''
+    _       ,/'
+   (_).  ,/'
+   __  ::
+  (__)'  `\.
+            `\.
+
+''')
+
+paper=('''
+  -------------
+  |           |
+  |           |
+  |           |
+  |           |
+  -------------
+
+''')
+human=input('This is rock, paper, scissors game. Type rock, paper or scissors \n')
+print(f"You picked ",human)
+
+if human=="rock":
+    print(rock)
+elif human=="scissors":
+    print(scissors)
+else:
+    (print(paper))
+
+choices=["rock","paper","scissors"]
+
+pc_pick=random.randint(0,2)
+pc_choice=choices[pc_pick]
+#print(pc_choice)
+print(f"Your opponent picked {pc_choice}")
+
+if pc_choice=="rock":
+    print(rock)
+elif pc_choice == "scissors":
+    print(scissors)
+else:
+    (print(paper))
+
+if human==pc_choice:
+    print("Tie! Go again!")
+
+if  human=="rock" and pc_choice=="scissors" or human=="paper" and pc_choice=="rock" or human=="scissors" and pc_choice=="paper":
+    print("You win!")
+
+if  human=="scissors" and pc_choice=="rock" or human=="rock" and pc_choice=="paper" or human=="paper" and pc_choice=="scissors":
+    print ("You lose!")
+
+
+
