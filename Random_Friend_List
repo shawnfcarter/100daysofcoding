@@ -1,0 +1,7 @@
+#Pick a random Friend
+import random
+
+friends=["Alice", "Bob", "Charlie", "David", "Emanuel"]
+name_random=random.randint(0,4)
+print(friends[name_random])
+
