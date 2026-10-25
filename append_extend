@@ -1,0 +1,10 @@
+#append and extend
+states_of_US=["Delaware","Pennsylvania","Virginia"]
+print(states_of_US[0])
+states_of_US[2]="VA"
+print(states_of_US)
+states_of_US.append("Hawaii")
+print(states_of_US)
+b=("Georgia","Indiana")
+states_of_US.extend(b)
+print(states_of_US)
