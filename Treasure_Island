@@ -1,0 +1,35 @@
+#treasure island
+
+
+print("Welcome to Treasure Island!")
+print("Your mission is to find the treasure.")
+a=0 # filler variable
+
+#first path choice
+first=input('Do you want to go left or right?\n'
+            'Type right or left\n ').lower()
+if first=="left":
+    # second path choice
+    second=input('You come to a lake to cross.\n'
+                'Do you swim or wait for a boat?\n' 
+                'Type "swim" or "wait"\n ').lower()
+
+    if second=="wait":
+        #third path choice
+        third=input('You cross the lake and come to a door.\n'
+                    'Which door do you take? red, yellow or blue.\n'
+                    'Type "red", "yellow" or "blue"\n ').lower()
+
+        if third=="yellow":
+            print("You win and get the treasure!")
+        else:
+            print("A tiger comes out and mauls you to death!")
+            print("Game Over")
+    else:
+        print("Piranha come to you and eat you alive!")
+        print("Game Over")
+else:
+    print("You tripped and fell on your sword. You bleed out!")
+    print("Game Over")
+
+
