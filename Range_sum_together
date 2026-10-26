@@ -1,0 +1,8 @@
+# Range Function in for loop
+#add 1-100 together
+
+total_num=0
+for number in range(1,101):
+    total_num = number + total_num
+print(total_num)
+
