@@ -1,0 +1,34 @@
+def steps_8():
+    count=0
+    while(count<=8):
+        move()
+        count+=1
+
+def steps_7()
+    count=0
+    while(count<=7):
+        move()
+
+def steps_6()
+    count=0
+    while(count<=6):
+        move()
+        
+#first round
+steps_8()
+turn_left()
+steps_8()
+turn_left()
+steps_8()
+turn_left()
+steps_7()
+
+#second round
+turn_left()
+steps_7()
+turn_left()
+steps_7()
+turn_left()
+steps_7()
+turn_left()
+steps_6()
