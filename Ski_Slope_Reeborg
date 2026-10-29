@@ -1,5 +1,5 @@
-# zeeborg ski slope
-# define custom functions
+#zeeborg ski slope
+#define custom functions
 def turn_right():
     turn_left()
     turn_left()
@@ -27,13 +27,20 @@ def s_curve_ski():
     move()
     zag()
 
-#route down slope
 double_move()
 zig()
 zag()
-# for loop for repeating pattern
-for i in range(4):
+#i = 0
+#for loop for repeating pattern
+#for i in range(4):
+#    s_curve_ski()
+
+#while loop version
+slopes=4
+while slopes>0:
     s_curve_ski()
+    slopes-=1
+    
 move()
 zag()
 move()
