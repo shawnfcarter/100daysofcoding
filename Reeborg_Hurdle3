@@ -1,0 +1,27 @@
+#hurdle 3 test not finished, need to debug. It overruns the flag
+
+#define functions
+def turn_right():
+    turn_left()
+    turn_left()
+    turn_left()
+
+def jump():
+    turn_left()
+    move()
+    turn_right()
+    move()
+    turn_right()
+    move()
+    turn_left()    
+    
+jump_num=0 #while loop until at goal = true
+while at_goal!=True:
+    if front_is_clear()==True:
+        move()
+    else:
+        if at_goal()!= True and front_is_clear!=True:
+            jump()
+
+    
+    
