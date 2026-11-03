@@ -1,4 +1,4 @@
-#hurdle 3 test not finished, need to debug. It overruns the flag
+#hurdle 3 test
 
 #define functions
 def turn_right():
@@ -16,12 +16,12 @@ def jump():
     turn_left()    
     
 jump_num=0 #while loop until at goal = true
-while at_goal!=True:
+while at_goal()!=True:
     if front_is_clear()==True:
         move()
     else:
-        if at_goal()!= True and front_is_clear!=True:
+        if front_is_clear()!=True:
             jump()
-
+print("The End")        
     
     
