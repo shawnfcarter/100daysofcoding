@@ -1,0 +1,21 @@
+#maze
+
+def turn_right():
+    turn_left()
+    turn_left()
+    turn_left()
+    
+  
+while not at_goal():
+    if right_is_clear():     #always go right first
+        turn_right()
+        if front_is_clear(): #avoids getting stuck in open spaces
+            move()
+    elif front_is_clear():   #go forward when possible
+        move()
+    else:
+        turn_left()           #last resort take a left
+print("the end")
+
+    
+    
