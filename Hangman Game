@@ -3,7 +3,7 @@
 # 1. generate a blank hangman gallows
 # 2. generate random word
 # 3. set blanks for letters in the random word below gallows
-# 4. ask for a letter guess
+# 4. ask for a letter guess 6 times in a row
 # 5. check letter against word
 #   --> right: update the blanks for existing letter
 #   --> wrong: update the gallows for series of 6 chances
@@ -11,10 +11,55 @@
 #   --> is this full word match: the end, save the day
 # 6. loop back to step 4
 
+
 # random word list
-words=["dinosaur", "encyclopedia", "computer", "television", "fantasy", "incision", "exploration"]
 import random
+words=["DINOSAUR", "ENCYCLOPEDIA", "COMPUTER", "TELEVISION", "FANTASY", "INCISION", "EXPLORATION"]
 letter_count=0
+chosen_letters=[""]
+
+#shows current progress and count of letters
+def letters_print():
+    letter_count=len(hidden_word)
+    print(f"Your phrase contains {letter_count} letters.")
+    number_of_blanks()
+    print(f"Your chosen letters so far are: {chosen_letters}")
+    print(hangman_word) #for testing only, hide later=
+    if letter_count<1:
+        print("You have no correct letters yet!")
+
+#prints out the number of blanks in the hangman word
+def number_of_blanks():
+    print(letter_count) #remove later
+    if letter_count == 1:
+        print("_")
+    elif letter_count == 2:
+        print("__")
+    elif letter_count == 3:
+        print("___")
+    elif letter_count == 4:
+        print("____")
+    elif letter_count == 5:
+        print("_____")
+    elif letter_count == 6:
+        print("______")
+    elif letter_count == 8:
+        print("________")
+    elif letter_count == 9:
+        print("_________")
+    elif letter_count == 10:
+        print("__________")
+    elif letter_count == 11:
+        print("___________")
+    elif letter_count == 12:
+        print("____________")
+    elif letter_count == 13:
+        print("_____________")
+    elif letter_count == 14:
+        print("______________")
+    else:
+        print("_______________")
+
 
 #hangman ascii art by guesses
 hang0=\
@@ -106,104 +151,88 @@ print('''
  _
 | |
 | |__   __ _ _ __   __ _ _ __ ___   __ _ _ __
-| '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \
+| '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_  \
 | | | | (_| | | | | (_| | | | | | | (_| | | | |
 |_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
                     __/ |
                    |___/
 ''')
 
+chosen_letters.clear() #zero out the letter chosen to blank
+hidden_word = random.choice(words) #select a random word
+
+hangman_word = hidden_word.replace("A", "_")
+hangman_word = hidden_word.replace("B", "_")
+hangman_word = hidden_word.replace("C", "_")
+hangman_word = hidden_word.replace("D", "_")
+hangman_word = hidden_word.replace("E", "_")
+hangman_word = hidden_word.replace("F", "_")
+hangman_word = hidden_word.replace("G", "_")
+hangman_word = hidden_word.replace("H", "_")
+hangman_word = hidden_word.replace("I", "_")
+hangman_word = hidden_word.replace("J", "_")
+hangman_word = hidden_word.replace("K", "_")
+hangman_word = hidden_word.replace("L", "_")
+hangman_word = hidden_word.replace("M", "_")
+hangman_word = hidden_word.replace("N", "_")
+hangman_word = hidden_word.replace("O", "_")
+hangman_word = hidden_word.replace("P", "_")
+hangman_word = hidden_word.replace("Q", "_")
+hangman_word = hidden_word.replace("R", "_")
+hangman_word = hidden_word.replace("S", "_")
+hangman_word = hidden_word.replace("T", "_")
+hangman_word = hidden_word.replace("U", "_")
+hangman_word = hidden_word.replace("V", "_")
+hangman_word = hidden_word.replace("W", "_")
+hangman_word = hidden_word.replace("X", "_")
+hangman_word = hidden_word.replace("Y", "_")
+hangman_word = hidden_word.replace("Z", "_")
+hangman_word2 = list(hidden_word)
+
+print(hangman_word)
+print(hangman_word2)
+
+print("You have 6 chances to win the game or hang!")
+
+#give user 6 chances to solve the puzzle
 while chances<7:
-    print("You have 6 chances to win the game or hang!")
     letter=input("Pick a letter: ")
     uppercase_letter = letter.upper()
     letter=uppercase_letter
-    print(letter)
-    hidden_word = random.choice(words)
-
-    hangman_word=hidden_word.replace("a","_")
-    hangman_word = hidden_word.replace("b", "_")
-    hangman_word = hidden_word.replace("c", "_")
-    hangman_word = hidden_word.replace("d", "_")
-    hangman_word = hidden_word.replace("e", "_")
-    hangman_word = hidden_word.replace("f", "_")
-    hangman_word = hidden_word.replace("g", "_")
-    hangman_word = hidden_word.replace("h", "_")
-    hangman_word = hidden_word.replace("i", "_")
-    hangman_word = hidden_word.replace("j", "_")
-    hangman_word = hidden_word.replace("k", "_")
-    hangman_word = hidden_word.replace("l", "_")
-    hangman_word = hidden_word.replace("m", "_")
-    hangman_word = hidden_word.replace("n", "_")
-    hangman_word = hidden_word.replace("o", "_")
-    hangman_word = hidden_word.replace("p", "_")
-    hangman_word = hidden_word.replace("q", "_")
-    hangman_word = hidden_word.replace("r", "_")
-    hangman_word = hidden_word.replace("s", "_")
-    hangman_word = hidden_word.replace("t", "_")
-    hangman_word = hidden_word.replace("u", "_")
-    hangman_word = hidden_word.replace("v", "_")
-    hangman_word = hidden_word.replace("w", "_")
-    hangman_word = hidden_word.replace("x", "_")
-    hangman_word = hidden_word.replace("y", "_")
-    hangman_word = hidden_word.replace("z", "_")
-
+    chosen_letters.append(letter)
+    #print(chosen_letters)
     print(hidden_word)
-    print(hangman_word)
-
-    letter_count=len(hidden_word)
-    print(f"Your phrase contains {letter_count} letters.")
-
-    if letter_count==1:
-        print("_")
-    elif letter_count==2:
-        print("__")
-    elif letter_count==3:
-        print("___")
-    elif letter_count==4:
-        print("____")
-    elif letter_count==5:
-        print("_____")
-    elif letter_count==6:
-        print("______")
-    elif letter_count==8:
-        print("________")
-    elif letter_count==9:
-        print("_________")
-    elif letter_count==10:
-        print("__________")
-    elif letter_count==11:
-        print("___________")
-    elif letter_count==12:
-        print("____________")
-    elif letter_count==13:
-        print("_____________")
-    elif letter_count==14:
-        print("______________")
-    else:
-        print("_______________")
-    #print(hidden_word)
+   # print(hangman_word)
+   # print(hangman_word2)
 
     if letter in hidden_word:
-        print(f"The string contains the letter {letter}")
+        print(f"The word contains the letter {letter}")
+        letters_print()
     else:
         print(f"Letter {letter} not found.")
-        chances+=1
-      #  print(chances)
+        letters_print()
+        chances += 1
+    #letters_print()
 
-    if chances==1:
+    #printing hangman in sequence depending on number of guesses wrong
+    if (chances==0):
+        letters_print
+    elif (chances==1):
         print(hang0)
+        letters_print()
     elif chances==2:
         print(hang1)
+        letters_print()
     elif chances==3:
         print(hang2)
+        letters_print()
     elif chances==4:
         print(hang3)
+        letters_print()
     elif chances==5:
         print(hang4)
+        letters_print()
     elif chances==6:
         print(hang5)
-print(hang6)
-
-
-
+        letters_print()
+print(hang6) #end of game
