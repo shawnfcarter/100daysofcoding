@@ -161,32 +161,40 @@ print('''
 chosen_letters.clear() #zero out the letter chosen to blank
 hidden_word = random.choice(words) #select a random word
 
-hangman_word = hidden_word.replace("A", "_")
-hangman_word = hidden_word.replace("B", "_")
-hangman_word = hidden_word.replace("C", "_")
-hangman_word = hidden_word.replace("D", "_")
-hangman_word = hidden_word.replace("E", "_")
-hangman_word = hidden_word.replace("F", "_")
-hangman_word = hidden_word.replace("G", "_")
-hangman_word = hidden_word.replace("H", "_")
-hangman_word = hidden_word.replace("I", "_")
-hangman_word = hidden_word.replace("J", "_")
-hangman_word = hidden_word.replace("K", "_")
-hangman_word = hidden_word.replace("L", "_")
-hangman_word = hidden_word.replace("M", "_")
-hangman_word = hidden_word.replace("N", "_")
-hangman_word = hidden_word.replace("O", "_")
-hangman_word = hidden_word.replace("P", "_")
-hangman_word = hidden_word.replace("Q", "_")
-hangman_word = hidden_word.replace("R", "_")
-hangman_word = hidden_word.replace("S", "_")
-hangman_word = hidden_word.replace("T", "_")
-hangman_word = hidden_word.replace("U", "_")
-hangman_word = hidden_word.replace("V", "_")
-hangman_word = hidden_word.replace("W", "_")
-hangman_word = hidden_word.replace("X", "_")
-hangman_word = hidden_word.replace("Y", "_")
-hangman_word = hidden_word.replace("Z", "_")
+
+
+replacements = {"A": "-",
+                "B": "-", 
+                "C": "-",
+                "D": "-",
+                "E": "-",
+                "F": "-",
+                "G": "-",
+                "H": "-",
+                "I": "-",
+                "J": "-",
+                "K": "-",
+                "L": "-",
+                "M": "-",
+                "N": "-",
+                "O": "-",
+                "P": "-",
+                "Q": "-",
+                "R": "-",
+                "S": "-",
+                "T": "-",
+                "U": "-",
+                "V": "-",
+                "W": "-",
+                "X": "-",
+                "Y": "-",
+                "Z": "-",
+                }
+
+for old, new in replacements.items():
+    hangman_word = hangman_word.replace(old, new)
+print(hangman_word)
+
 hangman_word2 = list(hidden_word)
 
 print(hangman_word)
@@ -204,6 +212,12 @@ while chances<7:
     print(hidden_word)
    # print(hangman_word)
    # print(hangman_word2)
+    for letter_word in hidden_word:
+        #print(letter_word)
+        if letter_word == letter:
+            print("right")
+        else:
+            print("wrong")
 
     if letter in hidden_word:
         print(f"The word contains the letter {letter}")
