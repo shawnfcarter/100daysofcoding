@@ -1,15 +1,15 @@
 #hangman game WIP
 
-# 1. generate a blank hangman gallows DONE
-# 2. generate random word DONE
-# 3. set blanks for letters in the random word below gallows DONE
-# 4. ask for a letter guess 6 times in a row DONE
-# 5. check letter against word DONE
-#   --> right: update the blanks for existing letter NOT WORKING
-#   --> wrong: update the gallows for series of 6 chances DONE
-#   --> is this final chance: the end, hung DONE
-#   --> is this full word match: the end, save the day WIP
-# 6. loop back to step 4 DONE
+# 1. generate a blank hangman gallows
+# 2. generate random word
+# 3. set blanks for letters in the random word below gallows
+# 4. ask for a letter guess 6 times in a row
+# 5. check letter against word
+#   --> right: update the blanks for existing letter
+#   --> wrong: update the gallows for series of 6 chances
+#   --> is this final chance: the end, hung
+#   --> is this full word match: the end, save the day
+# 6. loop back to step 4
 
 
 # random word list
@@ -22,10 +22,9 @@ chosen_letters=[""]
 def letters_print():
     print(f"Your phrase contains {letter_count} letters.")
     print(f"Your chosen letters so far are: {chosen_letters}")
-    #print(hangman_word)
     if letter_count<1:
         print("You have no correct letters yet!")
-
+    print(hangman_word2)
 
 #hangman ascii art by guesses
 hang0=\
@@ -111,7 +110,6 @@ hang6=\
       ----------
       You lose! Game Over.
 ''')
-chances=0 #set up hangman bad choice count
 
 print('''
  _
@@ -124,21 +122,25 @@ print('''
                    |___/
 ''')
 
-chosen_letters.clear()              #zero out the letter chosen to blank
-hidden_word = random.choice(words)  #select a random word
-hangman_word=hidden_word            #hangman set to same word
-hangman_word2 = list(hidden_word)   #list conversion of hangman word
+chosen_letters.clear()                      #zero out the letter chosen to blank
+hidden_word = random.choice(words)          #select a random word
+hangman_word=hidden_word                    #hangman set to same word
+hangman_word2 = list(hidden_word)           #list conversion of hangman word
 
-letter_count = len(hidden_word)     #creates _ blank hangman word to show player
+letter_count = len(hidden_word)                 #creates _ blank hangman word to show player
 for position in range(letter_count):
     hangman_word+="_"
 #print(hangman_word)
 
 print("You have 6 chances to win the game or hang!")
-display=""      #zero out before the while loop
+chances=0                                       #reset start to 0 chances again
+game_over=False
+correct_letters=[]                              #set up blank list with correct letter guesses
+hangman_word2=[]
 
-#give user 6 chances to solve the puzzle
-while chances<7:
+while chances<7 and not game_over:              #if game solved before 7 chances jump out of while loop early else lose
+
+    display = ""  # zero out before the while loop
 
     letter=input("Pick a letter: ")
     uppercase_letter = letter.upper()
@@ -148,80 +150,123 @@ while chances<7:
 
     if letter in hidden_word:
         print(f"The word contains the letter {letter}")
+        display += letter
+        correct_letters.append(letter)
+    elif letter in correct_letters:
+        display+=letter
     else:
         print(f"Letter {letter} not found.")
         chances += 1
+    #letters_print()
 
 
     #printing hangman in sequence depending on number of guesses wrong
-    if (chances==0):
-        letters_print()
+
+    if(chances==0):                     #1st chance no errors yet
         for letter_hw in hidden_word:
             if letter_hw == letter:
                 display += letter
+                correct_letters.append(letter)
+            elif letter in correct_letters:
+                display += letter
             else:
-                display += "_"
-        print(display)
+                display += "_"  #ok first time to set up blanks
+                correct_letters += "_" #ok the first time to put in all the blanks
+        for a in correct_letters:
+            hangman_word2.extend(list[a])
+            print(hangman_word2)
+            print(letters)
+        letters_print()
 
-    elif (chances==1):
+
+    if (chances==1):                        #2nd chance, 1 error
         print(hang0)
         for letter_hw in hidden_word:
             if letter_hw == letter:
                 display += letter
+                correct_letters.append(letter)
+            elif letter in correct_letters:
+                display += letter
             else:
-                display += "_"
-        print(display)
+                display += "_"  #ok first time to set up blanks
+                correct_letters += "_" #ok the first time to put in all the blanks
+        for a in correct_letters:
+            hangman_word2.extend(list[a])
+            print(hangman_word2)
 
         letters_print()
-    elif chances==2:
+
+
+    elif chances==2:                       #3rd chance, 2 errors
         print(hang1)
-        letters_print()
-        for letter_hw in hidden_word:
+        hangman_word2=list[display]
+        for letter_hw in hangman_word2:
             if letter_hw == letter:
+                display += letter
+                correct_letters.append(letter)
+            elif letter in correct_letters:
                 display += letter
             else:
                 display += "_"
-        print(display)
+        for a in correct_letters:
+            hangman_word2.extend(list[a])
+            print(hangman_word2)
+        letters_print()
 
-    elif chances==3:
+
+
+    elif chances==3:                    #4th chance, 3 errors
         print(hang2)
-        letters_print()
         for letter_hw in hidden_word:
             if letter_hw == letter:
                 display += letter
+                correct_letters.append(letter)
+                letters_print()
+            elif letter in correct_letters:
+                display += letter
             else:
                 display += "_"
-        print(display)
+        for a in correct_letters:
+            hangman_word2.extend(list[a])
+            print(hangman_word2)
+        letters_print()
 
-    elif chances==4:
+
+
+    elif chances==4:                    #5th chance, 4 errors
         print(hang3)
-        letters_print()
         for letter_hw in hidden_word:
             if letter_hw == letter:
                 display += letter
+                correct_letters.append(letter)
+                letters_print()
+            elif letter in correct_letters:
+                display += letter
             else:
                 display += "_"
-        print(display)
+        for a in correct_letters:
+            hangman_word2.extend(list[a])
+            print(hangman_word2)
+        letters_print()
 
-    elif chances==5:
+
+    elif chances==5:                #6th chance, 5 errors
         print(hang4)
-        letters_print()
         for letter_hw in hidden_word:
             if letter_hw == letter:
                 display += letter
+                correct_letters.append(letter)
+            elif letter in correct_letters:
+                display += letter
             else:
                 display += "_"
-        print(display)
-
-    elif chances==6:
-        print(hang5)
+        for a in correct_letters:
+            hangman_word2.extend(list[a])
+            print(hangman_word2)
         letters_print()
-        for letter_hw in hidden_word:
 
-            if letter_hw == chosen_letters:
-                display += chosen_letters
-            else:
-                display += "_"
-        print(display)
 
-print(hang6) #end of game
+    if "_" not in display and chances>0:                  #exit to win if all letters found
+        game_over=True
+        print("You win! Guilty guy saved")
+
