@@ -372,7 +372,7 @@ while not game_over:              #if game solved before 7 chances jump out of w
     if letter!=chosen_letters:                  #keep from adding the same letter again
         chosen_letters.append(letter)
 
-    #printing hangman in sequence depending on number of guesses wrong, this is broken
+    #printing hangman in sequence depending on number of guesses wrong
     for letter_hw in hidden_word:
         if letter_hw == letter:
             display += letter
@@ -393,7 +393,14 @@ while not game_over:              #if game solved before 7 chances jump out of w
         if chances==7:
             game_over=True
 
-    letters_print()
+    print(f"Your phrase contains {letter_count} letters.")
+    print(f"Your chosen letters so far are: {chosen_letters}")
+    hangman_word3 = ''.join(chosen_letters)
+    #  print(correct_letters)
+    #  print(hangman_word3)
+    # print(hangman_word2)
+    #  print(hidden_word)   #hide once fixed
+    print(display)          #hide once fixed
 
     if (chances==1):          #printing stage of hangman 0-6
         print(hang0)
