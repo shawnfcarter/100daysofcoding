@@ -11,10 +11,228 @@
 #   --> is this full word match: the end, save the day
 # 6. loop back to step 4
 
+word_list = [
+    'abruptly',
+    'absurd',
+    'abyss',
+    'affix',
+    'askew',
+    'avenue',
+    'awkward',
+    'axiom',
+    'azure',
+    'bagpipes',
+    'bandwagon',
+    'banjo',
+    'bayou',
+    'beekeeper',
+    'bikini',
+    'blitz',
+    'blizzard',
+    'boggle',
+    'bookworm',
+    'boxcar',
+    'boxful',
+    'buckaroo',
+    'buffalo',
+    'buffoon',
+    'buxom',
+    'buzzard',
+    'buzzing',
+    'buzzwords',
+    'caliph',
+    'cobweb',
+    'cockiness',
+    'croquet',
+    'crypt',
+    'curacao',
+    'cycle',
+    'daiquiri',
+    'dirndl',
+    'disavow',
+    'dizzying',
+    'duplex',
+    'dwarves',
+    'embezzle',
+    'equip',
+    'espionage',
+    'euouae',
+    'exodus',
+    'faking',
+    'fishhook',
+    'fixable',
+    'fjord',
+    'flapjack',
+    'flopping',
+    'fluffiness',
+    'flyby',
+    'foxglove',
+    'frazzled',
+    'frizzled',
+    'fuchsia',
+    'funny',
+    'gabby',
+    'galaxy',
+    'galvanize',
+    'gazebo',
+    'giaour',
+    'gizmo',
+    'glowworm',
+    'glyph',
+    'gnarly',
+    'gnostic',
+    'gossip',
+    'grogginess',
+    'haiku',
+    'haphazard',
+    'hyphen',
+    'iatrogenic',
+    'icebox',
+    'injury',
+    'ivory',
+    'ivy',
+    'jackpot',
+    'jaundice',
+    'jawbreaker',
+    'jaywalk',
+    'jazziest',
+    'jazzy',
+    'jelly',
+    'jigsaw',
+    'jinx',
+    'jiujitsu',
+    'jockey',
+    'jogging',
+    'joking',
+    'jovial',
+    'joyful',
+    'juicy',
+    'jukebox',
+    'jumbo',
+    'kayak',
+    'kazoo',
+    'keyhole',
+    'khaki',
+    'kilobyte',
+    'kiosk',
+    'kitsch',
+    'kiwifruit',
+    'klutz',
+    'knapsack',
+    'larynx',
+    'lengths',
+    'lucky',
+    'luxury',
+    'lymph',
+    'marquis',
+    'matrix',
+    'megahertz',
+    'microwave',
+    'mnemonic',
+    'mystify',
+    'naphtha',
+    'nightclub',
+    'nowadays',
+    'numbskull',
+    'nymph',
+    'onyx',
+    'ovary',
+    'oxidize',
+    'oxygen',
+    'pajama',
+    'peekaboo',
+    'phlegm',
+    'pixel',
+    'pizazz',
+    'pneumonia',
+    'polka',
+    'pshaw',
+    'psyche',
+    'puppy',
+    'puzzling',
+    'quartz',
+    'queue',
+    'quips',
+    'quixotic',
+    'quiz',
+    'quizzes',
+    'quorum',
+    'razzmatazz',
+    'rhubarb',
+    'rhythm',
+    'rickshaw',
+    'schnapps',
+    'scratch',
+    'shiv',
+    'snazzy',
+    'sphinx',
+    'spritz',
+    'squawk',
+    'staff',
+    'strength',
+    'strengths',
+    'stretch',
+    'stronghold',
+    'stymied',
+    'subway',
+    'swivel',
+    'syndrome',
+    'thriftless',
+    'thumbscrew',
+    'topaz',
+    'transcript',
+    'transgress',
+    'transplant',
+    'triphthong',
+    'twelfth',
+    'twelfths',
+    'unknown',
+    'unworthy',
+    'unzip',
+    'uptown',
+    'vaporize',
+    'vixen',
+    'vodka',
+    'voodoo',
+    'vortex',
+    'voyeurism',
+    'walkway',
+    'waltz',
+    'wave',
+    'wavy',
+    'waxy',
+    'wellspring',
+    'wheezy',
+    'whiskey',
+    'whizzing',
+    'whomever',
+    'wimpy',
+    'witchcraft',
+    'wizard',
+    'woozy',
+    'wristwatch',
+    'wyvern',
+    'xylophone',
+    'yachtsman',
+    'yippee',
+    'yoked',
+    'youthful',
+    'yummy',
+    'zephyr',
+    'zigzag',
+    'zigzagging',
+    'zilch',
+    'zipper',
+    'zodiac',
+    'zombie',
+]
 
-# random word list
-import random
-words=["DINOSAUR", "ENCYCLOPEDIA", "COMPUTER", "TELEVISION", "FANTASY", "INCISION", "EXPLORATION"]
+uppercased_words = [x.upper() for x in word_list]
+words=uppercased_words
+
+import random   #random function
+import re       #replace function
+
 letter_count=0
 chosen_letters=[""]
 hangman_word3=""
@@ -24,10 +242,10 @@ def letters_print():
     print(f"Your phrase contains {letter_count} letters.")
     print(f"Your chosen letters so far are: {chosen_letters}")
     hangman_word3 = ''.join(chosen_letters)
-    #print(correct_letters)
-    print(hangman_word3)
+  #  print(correct_letters)
+  #  print(hangman_word3)
     #print(hangman_word2)
-    print(hidden_word)   #hide once fixed
+  #  print(hidden_word)   #hide once fixed
     print(display)
 
 #hangman ascii art by guesses
@@ -134,10 +352,12 @@ hangman_word2 = list(hidden_word)           #list conversion of hangman word
 letter_count = len(hidden_word)             #creates _ blank hangman word to show player
 for position in range(letter_count):
     hangman_word+="_"
-print(hangman_word)
+print("You have 6 chances to win the game or hang!")
+
+take_off_dash = re.sub(r"[a-zA-Z]", "", hangman_word)
+hangman_word=take_off_dash
 print("Word to guess: " + hangman_word)
 
-print("You have 6 chances to win the game or hang!")
 chances=0                                       #reset start to 0 chances again
 game_over=False
 correct_letters=[]                              #set up blank list with correct letter guesses
@@ -147,12 +367,12 @@ while not game_over:              #if game solved before 7 chances jump out of w
 
     display = ""                                # zero out each pass in the while loop
     letter=input("Pick a letter: ")
-    uppercase_letter = letter.upper()
+    uppercase_letter = letter.upper()           #lower to uppercase
     letter=uppercase_letter
     if letter!=chosen_letters:                  #keep from adding the same letter again
         chosen_letters.append(letter)
 
-    #printing hangman in sequence depending on number of guesses wrong
+    #printing hangman in sequence depending on number of guesses wrong, this is broken
     for letter_hw in hidden_word:
         if letter_hw == letter:
             display += letter
@@ -164,33 +384,34 @@ while not game_over:              #if game solved before 7 chances jump out of w
 
     for a in correct_letters:
         hangman_word2.extend(a)
-    letters_print()
 
-    if letter not in hidden_word:      #takes away a life
+    if letter in hidden_word:
+        print(f"The letter {letter} is in the word!")
+    else:
         chances+=1
-        if chances==6:
+        print(f"The letter {letter} was not in the word.")
+        if chances==7:
             game_over=True
 
-    if(chances==0):                 #printing stage of hangman 0-6
+    letters_print()
+
+    if (chances==1):          #printing stage of hangman 0-6
         print(hang0)
 
-    elif (chances==1):
+    elif chances==2:
         print(hang1)
 
-    elif chances==2:
+    elif chances==3:
         print(hang2)
 
-    elif chances==3:
+    elif chances==4:
         print(hang3)
 
-    elif chances==4:
+    elif chances==5:
         print(hang4)
 
-    elif chances==5:
-        print(hang5)
-
     elif chances==6:
-        print(hang6)
+        print(hang5)
 
 
 if "_" not in display:             #exit to win if all letters found
