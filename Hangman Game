@@ -366,21 +366,29 @@ hangman_word2=[]
 while not game_over:              #if game solved before 7 chances jump out of while loop early else lose
 
     display = ""                                # zero out each pass in the while loop
-    letter=input("Pick a letter: ")
+    letter=input("Pick a letter: ")             #guess
     uppercase_letter = letter.upper()           #lower to uppercase
     letter=uppercase_letter
+
     if letter!=chosen_letters:                  #keep from adding the same letter again
         chosen_letters.append(letter)
+
+    for letter_check in chosen_letters:
+        clean_list=list(chosen_letters)
+        chosen_letters=clean_list
+
 
     #printing hangman in sequence depending on number of guesses wrong
     for letter_hw in hidden_word:
         if letter_hw == letter:
             display += letter
             correct_letters.append(letter)
-        elif letter in correct_letters:
-            display += letter
+        elif letter_hw in correct_letters:
+            display += letter_hw
         else:
             display += "_"          # first time to set up blanks
+
+    print(correct_letters) #hide later to check output
 
     for a in correct_letters:
         hangman_word2.extend(a)
@@ -388,7 +396,7 @@ while not game_over:              #if game solved before 7 chances jump out of w
     if letter in hidden_word:
         print(f"The letter {letter} is in the word!")
     else:
-        chances+=1
+        chances += 1
         print(f"The letter {letter} was not in the word.")
         if chances==7:
             game_over=True
@@ -396,11 +404,7 @@ while not game_over:              #if game solved before 7 chances jump out of w
     print(f"Your phrase contains {letter_count} letters.")
     print(f"Your chosen letters so far are: {chosen_letters}")
     hangman_word3 = ''.join(chosen_letters)
-    #  print(correct_letters)
-    #  print(hangman_word3)
-    # print(hangman_word2)
-    #  print(hidden_word)   #hide once fixed
-    print(display)          #hide once fixed
+    print(display)
 
     if (chances==1):          #printing stage of hangman 0-6
         print(hang0)
@@ -421,10 +425,11 @@ while not game_over:              #if game solved before 7 chances jump out of w
         print(hang5)
 
 
-if "_" not in display:             #exit to win if all letters found
+if display==hidden_word:             #exit to win if all letters found
         game_over=True
         print("You win! The wrongly accused walks free and is saved")
 
-if chances==7:             #you lose
+if chances==7:                      #you lose
     print(hang6)
+    print(f"The secret word was {hidden_word}")
 
