@@ -1,0 +1,9 @@
+def life_in_weeks():
+    age = input("What is your age? ")
+    year = 90 - int(age)
+    weeks= 52 * int(year)
+    print("Assuming you live to 90...")
+    print (f"You have {weeks} weeks left to live.")
+#    print(year)
+
+life_in_weeks()
