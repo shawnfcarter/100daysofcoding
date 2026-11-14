@@ -1,4 +1,4 @@
-#check two names for match to word TRUE score 1 for each letter, max is 4/4
+# Love Compatibility Test
 
 def calculate_love_score(name1, name2):
     name_count=0
@@ -10,17 +10,19 @@ def calculate_love_score(name1, name2):
     for n in name1:
         if n=="T" or n=="R" or n=="U" or n=="E":
             name_count += 1
-            print(name_count)
-
     for n in name2:
         if n == "T" or n == "R" or n == "U" or n == "E":
             name_count += 1
-            print(name_count)
     if name_count>4:
         name_count=4
-    print(f"The compatibility score is {name_count} out of 4.")
+    name_percent=(name_count/4*100)
+
+
+    print(f"The compatibility score is {name_count} out of 4 or {name_percent} %")
 
 #get 2 names
 name1=input("Who is the first person to match? ")
 name2=input("Who is the second person to match? ")
 calculate_love_score(name1, name2)
+
+
