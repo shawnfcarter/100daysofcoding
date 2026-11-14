@@ -1,0 +1,86 @@
+#def greet(input):
+#    print("Hello!")
+#    print("Welcome to the greet program")
+#    print(f"Glad to meet you. {name}")
+
+#name = input("What is your name? ")
+#greet(name)
+
+#### Caesar Cypher ###### WIP
+print("Welcome to Caesar Cypher!")
+print("What word do you want to encode? ")
+word=""
+uncoded_name=input(word)
+uncoded_list=list(uncoded_name)
+print(uncoded_list)
+uncoded_number=""
+
+for letter in uncoded_list:
+    if letter=="a":
+        uncoded_number="1"
+    elif letter=="b":
+        uncoded_number="2"
+    elif letter=="c":
+        uncoded_number="3"
+    elif letter == "d":
+        uncoded_number = "4"
+    elif letter == "e":
+        uncoded_number = "5"
+    elif letter == "f":
+        uncoded_number = "6"
+    elif letter == "g":
+        uncoded_number = "7"
+    elif letter == "h":
+        uncoded_number = "8"
+    elif letter == "i":
+        uncoded_number = "9"
+    elif letter == "j":
+        uncoded_number = "10"
+    elif letter == "k":
+        uncoded_number = "11"
+    elif letter == "l":
+        uncoded_number = "12"
+    elif letter == "m":
+        uncoded_number = "13"
+    elif letter == "n":
+        uncoded_number = "14"
+    elif letter == "o":
+        uncoded_number = "15"
+    elif letter == "p":
+        uncoded_number = "16"
+    elif letter == "q":
+        uncoded_number = "17"
+    elif letter == "r":
+        uncoded_number = "18"
+    elif letter == "s":
+        uncoded_number = "19"
+    elif letter == "t":
+        uncoded_number = "20"
+    elif letter == "u":
+        uncoded_number = "21"
+    elif letter == "v":
+        uncoded_number = "22"
+    elif letter == "w":
+        uncoded_number = "23"
+    elif letter == "x":
+        uncoded_number = "24"
+    elif letter == "y":
+        uncoded_number = "25"
+    elif letter == "z":
+        uncoded_number = "26"
+    print(uncoded_number)
+
+print("How many positions do you want to shift? 1-25")
+shift=int(input())
+#print(shift)
+
+for number in uncoded_number:
+    if number==1:
+        encoded_number="2"
+    if number==2:
+        encoded_number="3"
+        print("The shifted number sequence is: ")
+        print(encoded_number)
+        print("The original number is:")
+        print(uncoded_number)
+s
