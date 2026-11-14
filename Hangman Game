@@ -1,4 +1,4 @@
-#hangman game WIP
+#hangman game
 
 # 1. generate a blank hangman gallows
 # 2. generate random word
@@ -237,16 +237,6 @@ letter_count=0
 chosen_letters=[""]
 hangman_word3=""
 
-#shows current progress and count of letters
-def letters_print():
-    print(f"Your phrase contains {letter_count} letters.")
-    print(f"Your chosen letters so far are: {chosen_letters}")
-    hangman_word3 = ''.join(chosen_letters)
-  #  print(correct_letters)
-  #  print(hangman_word3)
-    #print(hangman_word2)
-  #  print(hidden_word)   #hide once fixed
-    print(display)
 
 #hangman ascii art by guesses
 hang0=\
@@ -359,7 +349,7 @@ hangman_word=take_off_dash
 print("Word to guess: " + hangman_word)
 
 chances=0                                       #reset start to 0 chances again
-game_over=False
+game_over=False                                 #prepare for while loop
 correct_letters=[]                              #set up blank list with correct letter guesses
 hangman_word2=[]
 
@@ -372,6 +362,10 @@ while not game_over:              #if game solved before 7 chances jump out of w
 
     if letter!=chosen_letters:                  #keep from adding the same letter again
         chosen_letters.append(letter)
+
+    for letter_hw in chosen_letters:
+        if letter_hw==letter:
+            print(f"You already chose this letter!")
 
     for letter_check in chosen_letters:
         clean_list=list(chosen_letters)
@@ -431,5 +425,5 @@ if display==hidden_word:             #exit to win if all letters found
 
 if chances==7:                      #you lose
     print(hang6)
-    print(f"The secret word was {hidden_word}")
+    print(f"The secret word was {hidden_word}. Try again!")
 
