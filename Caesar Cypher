@@ -1,86 +1,209 @@
-#def greet(input):
-#    print("Hello!")
-#    print("Welcome to the greet program")
-#    print(f"Glad to meet you. {name}")
-
-#name = input("What is your name? ")
-#greet(name)
-
 #### Caesar Cypher ###### WIP
+word=""
 print("Welcome to Caesar Cypher!")
 print("What word do you want to encode? ")
-word=""
 uncoded_name=input(word)
-uncoded_list=list(uncoded_name)
-print(uncoded_list)
-uncoded_number=""
 
-for letter in uncoded_list:
+uncoded_lower=uncoded_name.lower()     #change all to lowercase
+uncoded_name=uncoded_lower
+
+uncoded_number=""
+encoded_number=""
+encoded_name=""
+
+uncoded_list=list(uncoded_name)
+encoded_list=(uncoded_list)
+
+#print("This is before encoding: ")
+#print(uncoded_list)
+#print("This is after encoding" )
+#print(encoded_list)
+
+print("The uncoded number is: ")
+
+for letter in uncoded_list:     #assign a number 1-26 for all letters in the uncoded name
     if letter=="a":
-        uncoded_number="1"
+        uncoded_number = 1
     elif letter=="b":
-        uncoded_number="2"
+        uncoded_number = 2
     elif letter=="c":
-        uncoded_number="3"
+        uncoded_number = 3
     elif letter == "d":
-        uncoded_number = "4"
+        uncoded_number = 4
     elif letter == "e":
-        uncoded_number = "5"
+        uncoded_number = 5
     elif letter == "f":
-        uncoded_number = "6"
+        uncoded_number = 6
     elif letter == "g":
-        uncoded_number = "7"
+        uncoded_number = 7
     elif letter == "h":
-        uncoded_number = "8"
+        uncoded_number = 8
     elif letter == "i":
-        uncoded_number = "9"
+        uncoded_number = 9
     elif letter == "j":
-        uncoded_number = "10"
+        uncoded_number = 10
     elif letter == "k":
-        uncoded_number = "11"
+        uncoded_number = 11
     elif letter == "l":
-        uncoded_number = "12"
+        uncoded_number = 12
     elif letter == "m":
-        uncoded_number = "13"
+        uncoded_number = 13
     elif letter == "n":
-        uncoded_number = "14"
+        uncoded_number = 14
     elif letter == "o":
-        uncoded_number = "15"
+        uncoded_number = 15
     elif letter == "p":
-        uncoded_number = "16"
+        uncoded_number = 16
     elif letter == "q":
-        uncoded_number = "17"
+        uncoded_number = 17
     elif letter == "r":
-        uncoded_number = "18"
+        uncoded_number = 18
     elif letter == "s":
-        uncoded_number = "19"
+        uncoded_number = 19
     elif letter == "t":
-        uncoded_number = "20"
+        uncoded_number = 20
     elif letter == "u":
-        uncoded_number = "21"
+        uncoded_number = 21
     elif letter == "v":
-        uncoded_number = "22"
+        uncoded_number = 22
     elif letter == "w":
-        uncoded_number = "23"
+        uncoded_number = 23
     elif letter == "x":
-        uncoded_number = "24"
+        uncoded_number = 24
     elif letter == "y":
-        uncoded_number = "25"
+        uncoded_number = 25
     elif letter == "z":
-        uncoded_number = "26"
+        uncoded_number = 26
     print(uncoded_number)
 
-print("How many positions do you want to shift? 1-25")
-shift=int(input())
-#print(shift)
+print("How many positions do you want to shift? 1-25" )
+shift=input()
+shift=int(shift)
 
-for number in uncoded_number:
-    if number==1:
-        encoded_number="2"
-    if number==2:
-        encoded_number="3"
-        print("The shifted number sequence is: ")
-        print(encoded_number)
-        print("The original number is:")
-        print(uncoded_number)
-s
+for letter in encoded_list:     #assign a number 1-26 for all letters in the uncoded name
+    if letter=="a":
+        encoded_number = 1 + shift
+    elif letter=="b":
+        encoded_number = 2 + shift
+    elif letter=="c":
+        encoded_number = 3 + shift
+    elif letter == "d":
+        encoded_number = 4 + shift
+    elif letter == "e":
+        encoded_number = 5 + shift
+    elif letter == "f":
+        encoded_number = 6 + shift
+    elif letter == "g":
+        encoded_number = 7 + shift
+    elif letter == "h":
+        encoded_number = 8 + shift
+    elif letter == "i":
+        encoded_number = 9 + shift
+    elif letter == "j":
+        encoded_number = 10 + shift
+    elif letter == "k":
+        encoded_number = 11 + shift
+    elif letter == "l":
+        encoded_number = 12 + shift
+    elif letter == "m":
+        encoded_number = 13 + shift
+    elif letter == "n":
+        encoded_number = 14 + shift
+    elif letter == "o":
+        encoded_number = 15 + shift
+    elif letter == "p":
+        encoded_number = 16 + shift
+    elif letter == "q":
+        encoded_number = 17 + shift
+    elif letter == "r":
+        encoded_number = 18 + shift
+    elif letter == "s":
+        encoded_number = 19 + shift
+    elif letter == "t":
+        encoded_number = 20 + shift
+    elif letter == "u":
+        encoded_number = 21 + shift
+    elif letter == "v":
+        encoded_number = 22 + shift
+    elif letter == "w":
+        encoded_number = 23 + shift
+    elif letter == "x":
+        encoded_number = 24 + shift
+    elif letter == "y":
+        encoded_number = 25 + shift
+    elif letter == "z":
+        encoded_number = 26 + shift
+    print(encoded_number)
+
+count_list = len(encoded_list)
+print(f" This is the length of the word {count_list}")
+
+#for i in range(len(encoded_list)):
+#for number in range(encoded_number):
+#encoded_number=str(encoded_number)      #switch int to str to get the loop to work
+
+
+#this part is fucked, the rest works
+
+for x in range(len(encoded_number)):
+    if encoded_number[x]==1 or encoded_number[x]==27:
+        encoded_list[x]="a"
+    elif encoded_number[x] == 2 or encoded_number[x] == 28:
+        encoded_list[x] = "b"
+    elif encoded_number[x] == 3 or encoded_number[x] == 29:
+        encoded_list[x] = "c"
+    elif encoded_number[x] == 4 or encoded_number[x] == 30:
+        encoded_list[x] = "d"
+    elif encoded_number[x] == 5 or encoded_number[x] == 31:
+        encoded_list[x] = "e"
+    elif encoded_number[x] == 6 or encoded_number[x] == 32:
+        encoded_list[x] = "f"
+    elif encoded_number[x] == 7 or encoded_number[x] == 33:
+        encoded_list[x] = "g"
+    elif encoded_number[x] == 8 or encoded_number[x] == 34:
+        encoded_list[x] = "h"
+    elif encoded_number[x] == 9 or encoded_number[x] == 35:
+        encoded_list[x] = "i"
+    elif encoded_number[x] == 10 or encoded_number[x] == 36:
+        encoded_list[x] = "j"
+    elif encoded_number[x] == 11 or encoded_number[x] == 37:
+        encoded_list[x] = "k"
+    elif encoded_number[x] == 12 or encoded_number[x] == 38:
+        encoded_list[x] = "l"
+    elif encoded_number[x] == 13 or encoded_number[x] == 39:
+        encoded_list[x] = "m"
+    elif encoded_number[x] == 14 or encoded_number[x] == 40:
+        encoded_list[x] = "n"
+    elif encoded_number[x] == 15 or encoded_number[x] == 41:
+        encoded_list[x] = "o"
+    elif encoded_number[x] == 16 or encoded_number[x] == 42:
+        encoded_list[x] = "p"
+    elif encoded_number[x] == 17 or encoded_number[x] == 43:
+        encoded_list[x] = "q"
+    elif encoded_number[x] == 18 or encoded_number[x] == 44:
+        encoded_list[x] = "r"
+    elif encoded_number[x] == 19 or encoded_number[x] == 45:
+        encoded_list[x] = "s"
+    elif encoded_number[x] == 20 or encoded_number[x] == 46:
+        encoded_list[x] = "t"
+    elif encoded_number[x] == 21 or encoded_number[x] == 47:
+        encoded_list[x] = "u"
+    elif encoded_number[x] == 22 or encoded_number[x] == 48:
+        encoded_list[x] = "v"
+    elif encoded_number[x] == 23 or encoded_number[x] == 49:
+        encoded_list[x] = "w"
+    elif encoded_number[x] == 24 or encoded_number[x] == 50:
+        encoded_list[x] = "x"
+    elif encoded_number[x] == 25 or encoded_number[x] == 51:
+        encoded_list[x] = "y"
+    elif encoded_number[x] == 26 or encoded_number[x] == 52:
+        encoded_list[x] = "z"
+    x += 1
+
+encoded_name=", ".join(encoded_list)
+
+print("The encoded word is: ")
+print({encoded_name})
+print(encoded_list)
+print("The original word is: ")
+print({uncoded_name})
